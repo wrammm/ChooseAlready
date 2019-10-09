@@ -1,21 +1,120 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/cli">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+<div id="outerDiv">
 
-<router-outlet></router-outlet>
+    <!-- Home Page Section -->
+
+    <div id="homeSection" [hidden]="showChoicesSection == true">
+        <h1>Choose Already</h1>
+        <br>
+        <h2>Can’t make a decision for the life of you? You have come to the right place.</h2>
+        <br>
+        <h2><u>Steps</u></h2>
+        <div id="steps">
+            <ol>
+                <li>Insert the choices you are debating</li>
+                <li>We will randomize the choices and hide them behind windows</li>
+                <li>Select a window to reveal a decision</li>
+            </ol>
+        </div>
+        <br>
+        <h2>It’s that simple and you can now move on with your life now that a decision has been made!</h2>
+        <h3>Note: If you can not make a decision on which hidden window to choose, you may be in trouble and we can not help you..</h3>
+        <div id="startButtonCont">
+            <button id="startButton" (click)="showChoicesSection = true" mat-button>Get Choosin'</button>
+        </div>
+    </div>
+
+
+    <!-- Add Choices Section -->
+    <div id="choicesSection" [hidden]="showChoicesSection == false || hideChoices == true">
+        <h2>Insert Choices</h2>
+        <form autocomplete="off">
+          <div class="choiceField">
+              <mat-form-field class="example-full-width">
+                  <input matInput id="choice1" name="choice1" [(ngModel)]="choices[0]" placeholder="Choice #1">
+                </mat-form-field>
+          </div>
+          <div class="choiceField">
+              <mat-form-field class="example-full-width">
+                  <input matInput id="choice2" name="choice2" [(ngModel)]="choices[1]" placeholder="Choice #2">
+                </mat-form-field>
+          </div>
+
+
+
+            <div class="choiceField" [hidden]="addedFields < 1">
+                <mat-form-field class="example-full-width">
+                <input matInput id="choice3" name="choice3" [(ngModel)]="choices[2]" placeholder="Choice #3">
+                </mat-form-field>
+            </div>
+        
+            <div class="choiceField" [hidden]="addedFields < 2">
+                <mat-form-field class="example-full-width">
+                      <input matInput id="choice4" name="choice4" [(ngModel)]="choices[3]" placeholder="Choice #4">
+                </mat-form-field>
+            </div>
+
+            <div class="choiceField" [hidden]="addedFields < 3">
+                <mat-form-field class="example-full-width">
+                  <input matInput id="choice5" name="choice5" [(ngModel)]="choices[4]" placeholder="Choice #5">
+                </mat-form-field>
+            </div>
+
+            <div class="choiceField" [hidden]="addedFields < 4">
+                <mat-form-field class="example-full-width">
+                <input matInput id="choice5" name="choice5" [(ngModel)]="choices[5]" placeholder="Choice #6">
+                </mat-form-field>
+            </div>
+        
+            <div class="choiceField" [hidden]="addedFields < 5">
+                <mat-form-field class="example-full-width">
+                      <input matInput id="choice6" name="choice6" [(ngModel)]="choices[6]" placeholder="Choice #7">
+                </mat-form-field>
+            </div>
+
+            <div class="choiceField" [hidden]="addedFields < 6">
+                <mat-form-field class="example-full-width">
+                  <input matInput id="choice7" name="choice7" [(ngModel)]="choices[7]" placeholder="Choice #8">
+                </mat-form-field>
+            </div>
+
+            <div class="choiceField" [hidden]="addedFields < 7">
+                <mat-form-field class="example-full-width">
+                <input matInput id="choice8" name="choice8" [(ngModel)]="choices[8]" placeholder="Choice #9">
+                </mat-form-field>
+            </div>
+        
+            <div class="choiceField" [hidden]="addedFields < 8">
+                <mat-form-field class="example-full-width">
+                      <input matInput id="choice9" name="choice9" [(ngModel)]="choices[9]" placeholder="Choice #10">
+                </mat-form-field>
+            </div>
+
+            <div class="addButton" [hidden]="addedFields == 8">
+                <button (click)="addField()" mat-button>+ Add Choice</button>
+            </div>
+            <div [hidden]="addedFields != 8">
+                <p id="maxAlert">You have reached the maximum amount of choices</p>
+            </div>
+
+        </form>
+
+        <div id="submitButtonCont">
+            <button id="submitButton" mat-button (click)="submit()">Hide and Randomize Choices</button>
+        </div>
+
+    </div>
+
+    <!-- Hidden/Decision Section -->
+
+    <div id="hiddenDecSection" [hidden]="hideChoices == false">
+        <h2 [hidden]="decisionHasBeenMade != false">Make a Choice</h2>
+        <h2 [hidden]="decisionHasBeenMade == false">The verduct is in:</h2>
+        <div *ngFor="let choice of randomArray; index as i; trackBy: trackByFn">
+            <button (click)="choiceSelected(i)" id="choice{{i}}" mat-button class="hiddenBox">{{choice}}</button>
+        </div>
+        <h2 [hidden]="decisionHasBeenMade == false">You chose: {{selectedDecision}}!</h2>
+        <div [hidden]="decisionHasBeenMade == false">
+            <button id="refresh" (click)="refresh()" mat-button>Refresh and Play Again</button>
+        </div>
+    </div>
+</div>

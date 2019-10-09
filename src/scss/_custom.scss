@@ -1,0 +1,68 @@
+@import '~@angular/material/theming';
+@import url('https://fonts.googleapis.com/css?family=Mansalva|Permanent+Marker&display=swap');
+@include mat-core();
+$primary: mat-palette($mat-grey);
+$accent:  mat-palette($mat-light-blue, 600, 300, 600);
+$warn:    mat-palette($mat-deep-orange, 300, 500, 800);
+
+*{
+font-family: 'Mansalva';
+}
+
+.choiceField{
+    text-align: center;
+}
+
+#startButtonCont{
+    margin-top: 30px; 
+    text-align: center;
+}
+
+body{
+    width: 100%;
+    height: 100%;
+    background-color: lightcyan;
+}
+
+h1, h2, h3, #steps{
+    text-align: center;
+}
+
+ol { text-align: center;
+    list-style-position: inside;}
+
+#startButton, #submitButton, #refresh{
+    background-color: coral;
+    color: whitesmoke;
+    border-radius: 10px;
+    padding: 14px 28px;
+    font-size: 16px;
+}
+
+.addButton{
+    text-align: center;
+}
+
+#submitButtonCont{
+    margin-top: 20px;
+    text-align: center;
+}
+
+#hiddenDecSection{
+    text-align: center;
+}
+
+.hiddenBox{
+    width: 80%;
+    height: 50px;
+    background-color: orange !important;
+    color: orange !important;
+    border: 2px solid black !important;
+    text-align: center;
+    margin-bottom: 15px !important;
+}
+
+#maxAlert{
+    color: red;
+    text-align: center;
+}
