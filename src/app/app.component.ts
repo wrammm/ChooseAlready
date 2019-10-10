@@ -15,13 +15,18 @@ export class AppComponent {
   selectedDecision = "";
 
   submit(){
-    if(this.choices.length < 2) {
+    console.log('this.choices');
+    console.log(this.choices);
+    //get rid of empty choices
+    let filteredArray = this.choices.filter(function (el) {
+      if(el == ''){
+        el = null;
+      }
+      return el != null;
+    });
+    if(filteredArray.length < 2) {
       alert("You must enter at least two choices");
     } else {
-      //get rid of empty choices
-      let filteredArray = this.choices.filter(function (el) {
-        return el != null;
-      });
       this.randomArray = this.shuffle(filteredArray);
       this.hideChoices = true;
     }
@@ -33,6 +38,11 @@ export class AppComponent {
 
   addField(){
     this.addedFields++;
+  }
+
+  undo(){
+    this.choices[this.addedFields + 1] = null;
+    this.addedFields--;
   }
 
   choiceSelected(seqSelected){

@@ -24,18 +24,30 @@ body{
     background-color: lightcyan;
 }
 
+#outerDiv{
+    padding: 10px;
+}
+
 h1, h2, h3, #steps{
     text-align: center;
 }
+#steps ol {
+    text-align: left;
+}
 
-ol { text-align: center;
-    list-style-position: inside;}
+.material-icons{
+    text-align: left;
+}
+
+.undoIcon{
+    cursor: pointer;
+}
 
 #startButton, #submitButton, #refresh{
     background-color: coral;
     color: whitesmoke;
     border-radius: 10px;
-    padding: 14px 28px;
+    padding: 14px 28px 14px 28px;
     font-size: 16px;
 }
 
@@ -60,6 +72,7 @@ ol { text-align: center;
     border: 2px solid black !important;
     text-align: center;
     margin-bottom: 15px !important;
+    border-radius: 10px !important;
 }
 
 #maxAlert{

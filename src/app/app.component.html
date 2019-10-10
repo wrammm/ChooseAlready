@@ -9,11 +9,9 @@
         <br>
         <h2><u>Steps</u></h2>
         <div id="steps">
-            <ol>
-                <li>Insert the choices you are debating</li>
-                <li>We will randomize the choices and hide them behind windows</li>
-                <li>Select a window to reveal a decision</li>
-            </ol>
+                <p><b>First</b>, insert the choices you are debating</p>
+                <p><b>Second</b>, we will randomize the choices and hide them behind windows</p>
+                <p><b>Third</b>, you select a window to reveal a decision</p>
         </div>
         <br>
         <h2>It’s that simple and you can now move on with your life now that a decision has been made!</h2>
@@ -43,7 +41,7 @@
 
             <div class="choiceField" [hidden]="addedFields < 1">
                 <mat-form-field class="example-full-width">
-                <input matInput id="choice3" name="choice3" [(ngModel)]="choices[2]" placeholder="Choice #3">
+                    <input matInput id="choice3" name="choice3" [(ngModel)]="choices[2]" placeholder="Choice #3">
                 </mat-form-field>
             </div>
         
@@ -92,6 +90,9 @@
             <div class="addButton" [hidden]="addedFields == 8">
                 <button (click)="addField()" mat-button>+ Add Choice</button>
             </div>
+            <div class="addButton" [hidden]="addedFields == 0">
+                <button (click)="undo()" mat-button>- Remove Choice</button>
+            </div>
             <div [hidden]="addedFields != 8">
                 <p id="maxAlert">You have reached the maximum amount of choices</p>
             </div>
@@ -99,7 +100,7 @@
         </form>
 
         <div id="submitButtonCont">
-            <button id="submitButton" mat-button (click)="submit()">Hide and Randomize Choices</button>
+            <button id="submitButton" mat-button (click)="submit()">Hide & Randomize Choices</button>
         </div>
 
     </div>
@@ -107,10 +108,10 @@
     <!-- Hidden/Decision Section -->
 
     <div id="hiddenDecSection" [hidden]="hideChoices == false">
-        <h2 [hidden]="decisionHasBeenMade != false">Make a Choice</h2>
+        <h2 [hidden]="decisionHasBeenMade != false">Make a Choice (Choose one of the boxes below)</h2>
         <h2 [hidden]="decisionHasBeenMade == false">The verduct is in:</h2>
         <div *ngFor="let choice of randomArray; index as i; trackBy: trackByFn">
-            <button (click)="choiceSelected(i)" id="choice{{i}}" mat-button class="hiddenBox">{{choice}}</button>
+            <button (click)="choiceSelected(i)" id="choice{{i}}" mat-button class="hiddenBox">{{choice}}</button>   
         </div>
         <h2 [hidden]="decisionHasBeenMade == false">You chose: {{selectedDecision}}!</h2>
         <div [hidden]="decisionHasBeenMade == false">
