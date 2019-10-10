@@ -1,7 +1,10 @@
 # ChooseAlready
 
-Deployed @ https://choosealready.firebaseapp.com
+## An app that helps you make a decison by relying on chance
+Try it out @ https://choosealready.firebaseapp.com
+![Choose Already - Animated gif demo](./src/assets/demo.gif)
 
+## Development specs
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.2.2.
 
 ## Development server
